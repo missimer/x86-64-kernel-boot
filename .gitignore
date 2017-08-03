@@ -1,0 +1,5 @@
+*~
+*.d
+*.o
+iso
+kernel.iso
