@@ -57,10 +57,7 @@ SECTIONS
     *(.bss)
   }
 
-  . = ALIGN(0x1000);
-  .eh_frame (NOLOAD) : { *(.eh_frame) } : NONE
-
   _kernel_virtual_end = .;
 
-  _kernel_physical_end = (LOADADDR (.eh_frame) + SIZEOF (.eh_frame) + 0xFFF) & 0xFFFFFFFFFFFFF000;
+  _kernel_physical_end = (LOADADDR (.bss) + SIZEOF (.bss) + 0xFFF) & 0xFFFFFFFFFFFFF000;
 }
