@@ -10,9 +10,16 @@ static void PrintString(char *str)
   }
 }
 
+static void ClearVGA()
+{
+  unsigned char *video = ((unsigned char *)VIDEO_START);
+  __builtin_memset(video,0,80*25*2);
+}
+
 void
 Kernel_Main(void)
 {
+  ClearVGA();
   PrintString("Hello World!");
 
   while(1);
